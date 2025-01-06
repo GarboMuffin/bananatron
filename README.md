@@ -18,7 +18,7 @@ npm ci
 
 ### Step 1: Download an app
 
-For all the platforms, our goal is to download an app and find the folder to where it got installed.
+For all the platforms, our goal is to download an app and find the folder to where it got installed. Bananatron is a black-box auditor, so the app does not need to be open source (but source code does make later analysis much easier).
 
 #### Windows
 
@@ -63,8 +63,22 @@ As an example, consider [TurboWarp Desktop](https://desktop.turbowarp.org/) (I m
 
 ### Step 3: Instrument
 
-Launch the app as you would normally. It'll work as normal, but now with instrumentation. Click around a bit to collect as much possibly interesting data as possible.
+Launch the app as you would normally. It'll work the same as normal, but now its inner workings are being instrumented. Interact with the app as a user would to gather as much interesting data as possible.
+
+We repeated this process for more than 100 apps to get a pretty big dataset.
 
 ### Step 4: Analyze the data
 
-The logs are stored in a folder called Bananatron Logs in your home directory. They can be quite long, so good luck. We have a script that automated much of this process however it is not ready to be shared.
+The logs are stored in a folder called `Bananatron Logs` in your home directory. They can be quite long and are meant to be machine-readable. Good luck.
+
+We have a script that we used to identify various risks to be further analyzed by a human, however it is not ready to be shared.
+
+## Discovered security vulnerabilities
+
+Bugs that were discovered, at least in part, based on data collected by Bananatron:
+
+ - CVE-2024-54147: Altair (GraphQL client) did not validate HTTPS certificates.
+
+## License
+
+Bananatron is available under the [GNU General Public License v3.0](LICENSE) license. The copyleft clauses of the GPLv3 should not hinder auditing closed-source apps on your computer as that is not redistribution.
