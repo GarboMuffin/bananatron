@@ -4,6 +4,10 @@ Black-box auditing framework for Electron apps.
 
 Bananatron is inspired by [Rise of Inspectron: Automated Black-box Auditing of Cross-platform Electron Apps](https://www.usenix.org/conference/usenixsecurity24/presentation/ali) by Mir Masood Ali, Mohammad Ghasemisharif, Chris Kanich, and Jason Polakis. The difference is how the instrumentation is added to the app. We like to say that Bananatron lives in the "API layer" and Inspectron lives in the "implementation layer".
 
+## Why and how
+
+https://muffin.ink/blog/bananatron/
+
 ## Usage
 
 ### Step 0: Dependencies
@@ -77,7 +81,8 @@ We have a script that we used to identify various risks to be further analyzed b
 
 Bugs that were discovered, at least in part, based on data collected by Bananatron:
 
- - CVE-2024-54147: Altair (GraphQL client) did not validate HTTPS certificates.
+ - Altair (GraphQL client) did not validate HTTPS certificates (CVE-2024-54147)
+ - Buttercup (password manager) disables web security for Dropbox authentication, allowing the page to read arbitrary files and bypass the same-origin policy
 
 ## License
 
